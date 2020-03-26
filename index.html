@@ -1,8 +1,153 @@
 <!DOCTYPE html>
-<html lang="en us">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, intial scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie-edge">
-		
-		<title>5-Day Weather Dashboard</title>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Dashboard</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  <!-- font awesome link -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="./assets/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- JQuery Link  -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+
+
+<!-- Main jumbotron -->
+<div class="jumbotron" >
+    <div class="container">
+    <h1 class="display-3" style="text-align: center;"><div class="greeting"></div></h1>
+    <div id="search-div" class="input-group">
+    <input type="text" id="userSearch" placeholder="Enter your location" class="form-control" />
+            <span class="input-group-btn">
+<button class="btn btn-primary city-btn search" input type="submit" value="Search" id="searchBtn" style="background-color: #50c0e9;">Search</button>
+    </span>
+        </div>
+    </div>
+</div>
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="section-heading"> Your Results: </h3>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-md-6"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-question fa-stack-1x fa-inverse"></i></span>
+              <h3 id="current">Current forcast for:</h3>
+              <div class="userSearch">
+            
+            <h3 id="currentCityJumbo">City:</h3>
+            <img id="currentIcon">
+            <div id="jumbotronText">
+                <h6 id="currentTemp" style="margin-bottom: 10px;">Current Temp:</h6>
+                <h6 id="currentHumidity" style="margin-bottom: 10px;">Current Humidity</h6>
+                <h6 id="currentWind" style="margin-bottom: 10px;">Current Wind Speed</h6>
+                <h6 id="uvIndex" style="margin-bottom: 10px;">UV Index: </h6>
+                <h6 id="currentUV" style="margin-bottom: 10px;"></h6>  
+        </div>
+      </div>
+            </div>
+            <div class="col-md-6"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-history fa-stack-1x fa-inverse"></i></span>
+                  <!-- Past Searches & Moment -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        
+          <h3 id="SH">Search History:</h3>
+          <span id="pastCities"></span>
+            </div>
+          
+        </div>
+    </div>
+</section>
+  <br>
+
+<hr>
+  <div class="fiveday" id="5d" style="font-size: 25px; text-align: center;">5 Day Forecast</div>
+<div class="card-deck col-12">
+    
+    <div class="card">
+        <div class="card-body">
+                <img id="day1Icon">
+                <h4 id="day1">
+                <script>
+                    $('#day1').text(moment().add(1, 'day').format('M/D/YY'));  
+                        </script></h4>
+                    <h6 id="day1Temp"></h6>
+                    <h6 id="day1Hum"></h6>
+        </div>
+  </div>
+
+    <div class="card">
+        <div class="card-body">
+                <img id="day2Icon">
+                <h4 id="day2">
+                    <script>
+                        $('#day2').text(moment().add(2, 'day').format('M/D/YY'));  
+                    </script>
+                    </h4>
+                    <h6 id="day2Temp"></h6>
+                    <h6 id="day2Hum"></h6>
+                </div>
+            </div>
+    <div class="card">
+        <div class="card-body">
+                <img id="day3Icon">
+                        <h4 id="day3">
+                            <script>
+                                $('#day3').text(moment().add(3, 'day').format('M/D/YY'));  
+                            </script>
+                        </h4>
+                        <h6 id="day3Temp"></h6>
+                        <h6 id="day3Hum"></h6>
+                    </div>
+
+                </div>
+    <div class="card">
+        <div class="card-body">
+                <img id="day4Icon">
+                <h4 id="day4">
+                    <script>
+                        $('#day4').text(moment().add(4, 'day').format('M/D/YY'));  
+                    </script>
+                </h4>
+                    <h6 id="day4Temp"></h6>
+                        <h6 id="day4Hum"></h6>
+                        </div>
+
+                    </div>
+    <div class="card">
+        <div class="card-body">
+                <img id="day5Icon">
+                <h4 id="day5">
+                <script>
+                    $('#day5').text(moment().add(5, 'day').format('M/D/YY'));  
+                </script>
+                </h4>
+                    <h6 id="day5Temp"></h6>
+                        <h6 id="day5Hum"></h6>
+                            </div>
+
+                        </div>              
+    </div>
+  <!-- jQuery -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./assets/script.js"></script>
+</body>
+
+</html>
